@@ -9,7 +9,7 @@ const NewsList = () => {
   useEffect(() => {
     const token = localStorage.getItem("token");
     axios
-      .get("http://localhost:8080/news", {
+      .get(process.env.REACT_APP_URL_NEWS, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

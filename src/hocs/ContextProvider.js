@@ -20,7 +20,7 @@ const ContextProvider = (props) => {
   const handleSubmitAuth = (e, navigate) => {
     e.preventDefault();
     axios
-      .post("http://localhost:8080/auth", dataValueAuth)
+      .post(process.env.REACT_APP_URL_AUTH, dataValueAuth)
       .then(({ data }) => {
         localStorage.setItem("token", data.token);
         authUserData(data);
@@ -40,7 +40,7 @@ const ContextProvider = (props) => {
   const handleSubmitRegistration = (e, navigate) => {
     e.preventDefault();
     axios
-      .post("http://localhost:8080/registration", dataReg)
+      .post(process.env.REACT_APP_URL_REGISTRATION, dataReg)
       .then(({ data }) => {
         console.log("registration:", data);
         navigate();
