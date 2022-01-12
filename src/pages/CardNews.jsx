@@ -8,7 +8,7 @@ import axios from "axios";
 
 const CardNews = () => {
   const [newsSingle, setNewsSingle] = useState(null);
-  const { handleLogout, setError, error, loading, setLoading, authUserData } =
+  const { handleLogout, setError, error, loading, setLoading, setUserAuth } =
     useContext(Context);
   const { id } = useParams();
   useEffect(() => {
@@ -22,7 +22,7 @@ const CardNews = () => {
       })
       .then(({ data }) => {
         setNewsSingle(data.article);
-        authUserData(data.user);
+        setUserAuth(data.user);
         setLoading(false);
       })
       .catch((e) => {

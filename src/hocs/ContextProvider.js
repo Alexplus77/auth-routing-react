@@ -27,7 +27,7 @@ const ContextProvider = (props) => {
       .post(process.env.REACT_APP_URL_AUTH, dataValueAuth)
       .then(({ data }) => {
         localStorage.setItem("token", data.token);
-        authUserData(data);
+        setUserAuth(data);
         navigate();
       })
       .catch((e) => {
@@ -63,22 +63,19 @@ const ContextProvider = (props) => {
     setIsAuth(true);
   };
   const handleLogout = () => {
-    setIsAuth(false);
     setUserAuth(null);
     localStorage.removeItem("token");
   };
 
   const value = {
+    setUserAuth,
+    userAuth,
     formAuth,
     error,
     setError,
     handleLogout,
     news,
     setNews,
-    authUserData,
-    isAuth,
-    setIsAuth,
-    userAuth,
     isRegistration,
     setIsRegistration,
     handleRegistrationValue,

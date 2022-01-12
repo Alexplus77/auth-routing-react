@@ -3,11 +3,11 @@ import { Context } from "./ContextProvider";
 import { useLocation, Navigate } from "react-router-dom";
 
 const AuthRequired = (props) => {
-  const { isAuth } = useContext(Context);
-  if (!isAuth) {
+  const { userAuth } = useContext(Context);
+  console.log(userAuth);
+  if (!userAuth) {
     return <Navigate to={"/"} />;
   }
-
   return props.children;
 };
 export { AuthRequired };

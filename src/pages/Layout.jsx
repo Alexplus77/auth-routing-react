@@ -6,12 +6,12 @@ import { Context } from "hocs/ContextProvider";
 import "App.css";
 
 const Layout = () => {
-  const { isRegistration, isAuth } = useContext(Context);
+  const { isRegistration, userAuth } = useContext(Context);
   return (
     <div className="container">
       <div className="header">
         <div className="logo">Neto Social</div>
-        {isAuth ? <FormAuthUser /> : !isRegistration && <Form />}
+        {userAuth ? <FormAuthUser /> : !isRegistration && <Form />}
       </div>
       <Outlet />
     </div>

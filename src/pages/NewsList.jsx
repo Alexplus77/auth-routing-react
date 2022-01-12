@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Context } from "hocs/ContextProvider";
 import { CardNews } from "components/CardNews";
@@ -11,20 +11,19 @@ const NewsList = () => {
   const {
     news,
     setNews,
-    authUserData,
+    setUserAuth,
     handleLogout,
     setError,
     error,
     loading,
     setLoading,
-    isAuth,
   } = useContext(Context);
-  console.log(isAuth);
+
   const navigate = useNavigate();
-  useEffect(() => {
+  useEffect(async () => {
     setLoading(true);
     const token = localStorage.getItem("token");
-    axios
+    await axios
       .get(process.env.REACT_APP_URL_NEWS, {
         headers: {
           Authorization: `Bearer ${token}`,
@@ -32,7 +31,7 @@ const NewsList = () => {
       })
       .then(({ data }) => {
         setNews(data.articles);
-        authUserData(data.user);
+        setUserAuth(data.user);
         setLoading(false);
       })
       .catch((e) => {
