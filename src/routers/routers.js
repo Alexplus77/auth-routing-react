@@ -5,6 +5,7 @@ import { FormReg } from "pages/FormReg";
 import { TitlePage } from "pages/TitlePage";
 import { NewsList } from "pages/NewsList";
 import { CardNews } from "pages/CardNews";
+import { Page404 } from "pages/Page404";
 import { AuthRequired } from "hocs/AuthRequired";
 
 const Routers = () => {
@@ -15,6 +16,7 @@ const Routers = () => {
         <Route path={"/registration"} element={<FormReg />} />
         <Route path={"/news"} element={<NewsList />} />
         <Route path={"/news/:id"} element={<CardNews />} />
+        <Route path={"*"} element={<Page404 />} />
       </Route>
     </Routes>
   );
