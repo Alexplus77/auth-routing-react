@@ -1,8 +1,8 @@
 import React, { useContext } from "react";
-import { Form } from "./Form";
-import { FormAuthUser } from "./FormAuthUser";
-import { Link, Outlet } from "react-router-dom";
-import { Context } from "../hocs/ContextProvider";
+import { Form } from "../components/Form";
+import { FormAuthUser } from "../components/FormAuthUser";
+import { Outlet } from "react-router-dom";
+import { Context } from "hocs/ContextProvider";
 import "App.css";
 
 const Layout = () => {

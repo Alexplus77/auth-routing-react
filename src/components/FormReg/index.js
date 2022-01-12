@@ -1,1 +1,1 @@
-export { FormReg } from "components/FormReg/FormReg";
+export { FormReg } from "pages/FormReg";

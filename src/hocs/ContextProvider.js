@@ -10,8 +10,12 @@ const ContextProvider = (props) => {
   const [isRegistration, setIsRegistration] = useState(false); // Определяем вызов формы регистрации через кнопку "Регистрация"
   const [isAuth, setIsAuth] = useState(false); //Определяем состояние, авторизован ли юзер
   const [userAuth, setUserAuth] = useState(null); // хранятся данные из бека авторизованного юзера
+  const [error, setError] = useState(null); //Ошибки
+  const [successfully, setSuccessfully] = useState(false); // Определяем успешность регистации
+  const [loading, setLoading] = useState(false); //Загрузка данных
 
-  const formReg = useRef();
+  const formReg = useRef(); // Форма регистрации
+  const formAuth = useRef(); // Форма авторизации
 
   const handleChangeAuth = ({ target }) => {
     setDataValueAuth({ ...dataValueAuth, [target.name]: target.value });
@@ -25,32 +29,33 @@ const ContextProvider = (props) => {
         localStorage.setItem("token", data.token);
         authUserData(data);
         navigate();
-        console.log("auth:", data);
       })
       .catch((e) => {
         e.response?.status === 401
-          ? alert("Не правильно введен логин или пароль")
-          : alert(e);
+          ? setError({ error: "Не правильно введен логин или пароль" })
+          : setError({ error: `${e}` });
       });
+    formAuth.current.reset();
   };
 
   const handleRegistrationValue = ({ target }) => {
     setDataReg({ ...dataReg, [target.name]: target.value });
   };
-  const handleSubmitRegistration = (e, navigate) => {
+  const handleSubmitRegistration = (e) => {
     e.preventDefault();
+    setLoading(true);
     axios
       .post(process.env.REACT_APP_URL_REGISTRATION, dataReg)
-      .then(({ data }) => {
-        console.log("registration:", data);
-        navigate();
+      .then(() => {
+        setSuccessfully(true);
+        setLoading(false);
       })
-      .catch((e) =>
+      .catch((e) => {
         e.response?.status === 409
-          ? alert("Пользователь с таким именем уже существует")
-          : alert(e)
-      );
-    setIsRegistration(false);
+          ? setError({ error: "Пользователь с таким именем уже существует" })
+          : setError({ error: `${e}` });
+        setLoading(false);
+      });
     formReg.current.reset();
   };
   const authUserData = (dataUser) => {
@@ -64,11 +69,15 @@ const ContextProvider = (props) => {
   };
 
   const value = {
+    formAuth,
+    error,
+    setError,
     handleLogout,
     news,
     setNews,
     authUserData,
     isAuth,
+    setIsAuth,
     userAuth,
     isRegistration,
     setIsRegistration,
@@ -77,6 +86,10 @@ const ContextProvider = (props) => {
     handleChangeAuth,
     handleSubmitAuth,
     formReg,
+    successfully,
+    setSuccessfully,
+    loading,
+    setLoading,
   };
   return <Context.Provider value={value}>{props.children}</Context.Provider>;
 };

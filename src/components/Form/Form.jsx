@@ -5,11 +5,12 @@ import { Context } from "hocs/ContextProvider";
 import { useNavigate } from "react-router-dom";
 
 const Form = () => {
-  const { setIsRegistration, handleSubmitAuth, handleChangeAuth } =
+  const { setIsRegistration, handleSubmitAuth, handleChangeAuth, formAuth } =
     useContext(Context);
   const navigate = useNavigate();
   return (
     <form
+      ref={formAuth}
       className="form"
       onSubmit={(e) =>
         handleSubmitAuth(e, () => navigate("/news", { replace: true }))

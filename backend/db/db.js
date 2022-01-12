@@ -1,1 +1,4 @@
-exports.db=[]
+const dbUsers = [];
+const dbNews = [];
+
+module.exports = { dbUsers, dbNews };

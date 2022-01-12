@@ -10,5 +10,4 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(routers);
-
 app.listen(port, () => console.log(`Server has been started on port: ${port}`));

@@ -89,7 +89,41 @@ margin-bottom: 10px;
   margin-bottom: 10px;
 }
 
-
+.card{
+  justify-self: center;
+}
+.card-newsList{
+  cursor: pointer;
+}
+.error{
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  justify-self: center;
+  align-self: center;
+  width: 400px;
+  height: 200px;
+color: red;
+  border:2px red solid;
+background-color: white;
+}
+.successfully{
+  text-align: center;
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  justify-self: center;
+  align-self: center;
+  width: 400px;
+  height: 200px;
+  color: #029923;
+  border:2px #029923 solid;
+  background-color: white;
+  padding: 10px;
+}
+.card-body{
+  background-color: white;
+}
 .btn-submit{
   color: green;
   border: green 1px solid;
@@ -102,6 +136,9 @@ margin-bottom: 10px;
   font-size: 16px;
   background-color: #66a6f9;
   color: #b2f9b2;
+}
+.btn-closeNews{
+  margin-left: 2%;
 }
 .title-page{
 display: grid;
@@ -121,4 +158,21 @@ font-size: 30px;
   font-size: 25px;
   cursor: pointer;
   text-decoration: none;
+}
+.fa-newsSingle{
+  justify-self: center;
+  align-self: end;
+  margin-left: 65%;
+}
+.spinner{
+  align-self: center;
+  justify-self: center;
+
+  width: 50px;
+  height: 50px;
+}
+.spinnerNewsList{
+grid-column: 2/3;
+  align-self: center;
+  justify-self: center;
 }
