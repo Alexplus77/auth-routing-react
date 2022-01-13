@@ -1,6 +1,6 @@
 const db = require("../db/db");
 const uuid = require("uuid");
-const bcrypt = require("bcrypt");
+const bcrypt = require("bcryptjs");
 exports.Registration = (req, res) => {
   try {
     if (!db.dbUsers.some(({ username }) => username === req.body.username)) {
