@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { Context } from "hocs/ContextProvider";
 import { Error } from "components/Error/Error";
+import { Link } from "react-router-dom";
 const TitlePage = () => {
   const { error } = useContext(Context);
   return (

@@ -11,9 +11,9 @@ const FormAuthUser = () => {
         Hello, {userAuth?.username}{" "}
         <img className="avatar" src={userAuth?.avatar} alt={"..."} />
       </div>
-      <button onClick={handleLogout} className="btn-submit">
+      <Link to={"/"} onClick={handleLogout} className="btn-submit">
         Logout
-      </button>
+      </Link>
     </form>
   );
 };
