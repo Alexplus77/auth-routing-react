@@ -26,8 +26,22 @@ const Routers = () => {
         <Route path={"/public"} element={<PublicPage />} />
 
         <Route path={"/registration"} element={<FormReg />} />
-        <Route path={"/news"} element={<NewsList />} />
-        <Route path={"/news/:id"} element={<CardNews />} />
+        <Route
+          path={"/news"}
+          element={
+            <AuthRequired>
+              <NewsList />
+            </AuthRequired>
+          }
+        />
+        <Route
+          path={"/news/:id"}
+          element={
+            <AuthRequired>
+              <CardNews />
+            </AuthRequired>
+          }
+        />
         <Route path={"*"} element={<Page404 />} />
       </Route>
     </Routes>

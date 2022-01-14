@@ -3,10 +3,10 @@ import { Context } from "./ContextProvider";
 import { useLocation, Navigate } from "react-router-dom";
 
 const AuthRequired = (props) => {
-  const { userAuth } = useContext(Context);
-  console.log(userAuth);
-  if (!userAuth) {
-    return <Navigate to={"/"} />;
+  const token = localStorage.getItem("token");
+  const location = useLocation();
+  if (!token) {
+    return <Navigate to={"/"} state={{ from: location.pathname }} />;
   }
   return props.children;
 };

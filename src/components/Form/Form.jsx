@@ -8,6 +8,7 @@ const Form = () => {
   const { setIsRegistration, handleSubmitAuth, handleChangeAuth, formAuth } =
     useContext(Context);
   const navigate = useNavigate();
+
   return (
     <form
       ref={formAuth}
