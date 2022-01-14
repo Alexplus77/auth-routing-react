@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/auth-routing-react/static/css/main.b2e20a67.css",
-    "main.js": "/auth-routing-react/static/js/main.b6c60424.js",
+    "main.css": "/auth-routing-react/static/css/main.1c3f4689.css",
+    "main.js": "/auth-routing-react/static/js/main.85d7c490.js",
     "index.html": "/auth-routing-react/index.html",
-    "main.b2e20a67.css.map": "/auth-routing-react/static/css/main.b2e20a67.css.map",
-    "main.b6c60424.js.map": "/auth-routing-react/static/js/main.b6c60424.js.map"
+    "main.1c3f4689.css.map": "/auth-routing-react/static/css/main.1c3f4689.css.map",
+    "main.85d7c490.js.map": "/auth-routing-react/static/js/main.85d7c490.js.map"
   },
   "entrypoints": [
-    "static/css/main.b2e20a67.css",
-    "static/js/main.b6c60424.js"
+    "static/css/main.1c3f4689.css",
+    "static/js/main.85d7c490.js"
   ]
 }
