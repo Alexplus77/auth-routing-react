@@ -1,8 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "App.css";
+import { UseIsAuth } from "hooks/useIsAuth";
 
 const PublicPage = () => {
+  const { token } = UseIsAuth();
   return (
     <div className={"container-content"}>
       <div
